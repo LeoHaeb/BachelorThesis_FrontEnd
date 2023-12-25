@@ -1,0 +1,43 @@
+
+#divPersonalization{
+    float: left;
+    height: 300px;
+}
+
+#buttonPersonalizationOK{
+    position: relative;
+    display: inline-block;
+    top: 5%;
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+#buttonPersonalizationNOK{
+    position: relative;
+    display: inline-block;
+    top: 5%;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+#divShipping{
+    clear: left;
+    height: 300px;
+}
+
+#buttonShipping{
+    position: relative;
+    display: inline-block;
+    top: 5%;
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}

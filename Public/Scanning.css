@@ -1,0 +1,110 @@
+#containerScanning{
+    float: left;
+}
+
+#auswahlKdNr {
+    width: 100px;
+    height: 300px;
+}
+
+#auswahlAuftrNr {
+    width: 200px;
+    height: 300px;
+}
+
+#auswahlProd {
+    width: 500px;
+    height: 300px;
+}
+
+#tdAuftragsspezifikation{
+    border: 1px solid black;
+    vertical-align: top;
+}
+
+#tableAuftragsspezifikation{
+    border: 1px solid black;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+#selectionOpenOrders{
+    width: 25%;
+    float: left;
+}
+
+#orderBox{
+    width: 75%;
+    float: left;
+}
+
+#scanArea{
+    clear: left;
+    float: left;
+    width: 300px;
+    height: 300px;
+}
+
+#scanButton{
+    position: relative;
+    display: inline-block;
+    top: 25%;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+#checkArea{
+    float: left;
+    background-color: yellowgreen;
+    width: 600px;
+    height: 300px;
+}
+
+#buttonOK{
+    position: relative;
+    display: inline-block;
+    top: 25%;
+    width: 200px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
+
+#buttonNOK{
+    position: relative;
+    display: inline-block;
+    top: 25%;
+    width: 200px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
+
+#processBox{
+    float: left;
+    background-color: blue;
+    height: 300px;
+}
+
+#buttonPersonalizatonAndShipping{
+    position: relative;
+    display: inline-block;
+    top: 25%;
+    width: 200px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
+
+#controlBox {
+    clear: left;
+}

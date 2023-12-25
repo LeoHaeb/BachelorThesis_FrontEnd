@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Auswahl Auftrag</title>
+    <link rel="stylesheet" href="Scanning.css">
+    <script language="JavaScript" type="text/javascript" src="FunctionsScanning.js"></script>
+</head>
+
+<html>
+    <body>
+        <div id="containerScanning">
+            <h1>Scanner</h1>
+            <div>
+                <select id="selectionOpenOrders" size="8" onchange="createTableOrderInfos()"></select>
+            </div>
+            <div id="orderBox"></div>
+            <div id="scanArea">
+                <button id="scanButton" onclick="scanButtonFunction()">Scannen</button>
+            </div>
+            <div id="checkArea">
+                <button id="buttonOK" onclick="buttonFunctionOK()">OK</button>
+                <button id="buttonNOK" onclick="buttonFunctionNOK()">NOK</button>
+            </div>
+            <div id="processBox">
+                <button id="buttonPersonalizatonAndShipping" onclick="toPersonalizationAndShipping()">Personalization & Shipping</button>
+            </div>
+            <div id="controlBox">
+                <label>gescanntes Produkt: </label>
+                <label id="scannedProductLabel"></label>
+            </div>
+        </div>
+    </body>
+</html>
