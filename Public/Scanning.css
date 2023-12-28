@@ -61,7 +61,6 @@ table, th, td {
 
 #checkArea{
     float: left;
-    background-color: yellowgreen;
     width: 600px;
     height: 300px;
 }
@@ -90,7 +89,6 @@ table, th, td {
 
 #processBox{
     float: left;
-    background-color: blue;
     height: 300px;
 }
 
