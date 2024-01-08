@@ -27,6 +27,26 @@ document.addEventListener("DOMContentLoaded", init);
 //function when loading page
 async function init() {
 
+    //login to backend
+
+    loginInfo = {
+        "userName": "Leo",
+        "password": "1234"
+    }
+
+    const res = await fetch('http://localhost:8080/login/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        mode: "cors",
+        body: JSON.stringify(loginInfo)
+    })
+
+    //check cookies
+    var cookies = document.cookie;
+
     //buttons to enable/ disable
     buttonOK = document.getElementById("buttonOK");
     buttonNOK = document.getElementById("buttonNOK");
@@ -51,7 +71,10 @@ async function init() {
 
     //get all open shopify order id's from db (= all order Entities, that have amount != processed)
     const index = 0;
-    var someOrders = await fetch("http://localhost:8080/scanner/getNextOpenOrders?index=" + index).then((someOrders) => someOrders.json())
+    var someOrders = await fetch("http://localhost:8080/scanner/getNextOpenOrders?index=" + index, {
+        credentials: "include",
+        mode: "cors",
+    }).then((someOrders) => someOrders.json())
     
     console.log(someOrders);
 
@@ -74,7 +97,10 @@ async function scanButtonFunction() {
         alert(urlCodeID.error);
     } else {
         //get information from db for scanned product
-        gl_productInfo = await fetch("http://localhost:8080/production/getProductByID?productID=" + urlCodeID).then((gl_productInfo) => gl_productInfo.json())
+        gl_productInfo = await fetch("http://localhost:8080/production/getProductByID?productID=" + urlCodeID, {
+            credentials: "include",
+            mode: "cors",
+        }).then((gl_productInfo) => gl_productInfo.json())
 
         //show product name on controlBox label
         var controlBoxLabel = document.getElementById("scannedProductLabel");
@@ -168,7 +194,9 @@ async function visualInspectionScanning(boolInspection) {
                     headers: {
                         'Accept': 'application/json',
                         "Content-Type": "application/json"},
-                    body: JSON.stringify(assembleInfo)
+                    credentials: "include",
+                    mode: "cors",
+                    body: JSON.stringify(assembleInfo),
                 }).then((updatedProduct) => updatedProduct.json());
 
                 //activate shipping button
@@ -195,8 +223,11 @@ async function visualInspectionScanning(boolInspection) {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
-                "Content-Type": "application/json"},
-            body: JSON.stringify(assembleInfo)
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(assembleInfo),
+            credentials: "include",
+            mode: "cors",
         }).then((updatedProduct) => updatedProduct.json());
 
         //deactivate shipping button, because NOK products shall not be shipped
@@ -232,7 +263,10 @@ async function createTableOrderInfos() {
     }
 
     //get information to display
-    gl_infosFromOrder = await fetch("http://localhost:8080/scanner/getOpenOrdersFromShopifyOrderID?shopify_order_id=" + gl_shopify_order_id).then((gl_infosFromOrder) => gl_infosFromOrder.json())
+    gl_infosFromOrder = await fetch("http://localhost:8080/scanner/getOpenOrdersFromShopifyOrderID?shopify_order_id=" + gl_shopify_order_id, {
+        credentials: "include",
+        mode: "cors",
+    }).then((gl_infosFromOrder) => gl_infosFromOrder.json())
 
     //create table out of data (source: https://www.tutorialspoint.com/how-to-convert-json-data-to-a-html-table-using-javascript-jquery)
     // Get the container element where the table will be inserted

@@ -1,6 +1,10 @@
 const express = require('express');
 const { spawn, spawnSync } = require('child_process');
 const path = require('path');
+const http = require('node:http');
+
+//authorization check
+var authorizationCheck = false;
 
 //use express framework for front end
 const app = express()
@@ -10,12 +14,18 @@ app.listen(3000);
 //use router middleware
 var router = express.Router();
 
+
 //routing
 app.use('/', router);
 app.use('/', express.static(path.join(__dirname, 'Public', )));
+router.use('/', express.static(path.join(__dirname, 'Public', )));
+router.use('/scanning/', express.static(path.join(__dirname, 'Public', )));
 
-//use middleware for starting python script from node.js 
-    
+//set authorization 
+router.get('/authorize/', async function(req, res) {
+    authorizationCheck = true;
+    res.send(true);
+})
 
 
 //routing for home directory

@@ -21,7 +21,10 @@ async function init() {
     var productID = urlParams.get('productID');
     
     //get product information from backend
-    const product = await fetch("http://localhost:8080/production/getProductByID?productID=" + productID).then((product) => product.json());
+    const product = await fetch("http://localhost:8080/production/getProductByID?productID=" + productID, {
+        credentials: "include",
+        mode: "cors",
+    }).then((product) => product.json());
 
     //assign to global Variable
     glObjProduct = product;
@@ -93,7 +96,9 @@ async function getShippingInformation() {
         headers: {
             'Accept': 'application/json',
             "Content-Type": "application/json"},
-        body: JSON.stringify(shippingInformation)
+        body: JSON.stringify(shippingInformation),
+        credentials: "include",
+        mode: "cors",
     }).then((glObjProduct) => glObjProduct.json());
 }
 
@@ -113,7 +118,9 @@ async function setPersonalizationQualtiy(boolQualityPersonalizazion) {
         headers: {
             'Accept': 'application/json',
             "Content-Type": "application/json"},
-        body: JSON.stringify(visualInspection)
+        body: JSON.stringify(visualInspection),
+        credentials: "include",
+        mode: "cors",
     }).then((product) => product.json());
 
     //assign updated product to global Object
